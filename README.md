@@ -251,6 +251,16 @@ setTimeout(changeGreeting, 5000);
 ```
 What we've done here is after 5 seconds call a function that would change the value of the first `H1` tag in your page.
 
+Of course, we may not always want to name our main js file as `start.js` in a subdirectory `js` under `src`, in which case we need to let webpack know what is our root or main js file that represents that starting point of all our javascript functionality. 
+This can be done by modifying the `webpack.config.js` file's entry section like so
+
+```json
+module.exports = {
+    entry: [
+        './src/js/start.js'
+    ]
+```
+
 ### CSS
 In web development, the styling of your web-page i.e. the layout of elements, the spacing between them, the coloring, the border and so on,
 is done using **Cascading Style Sheets** or `CSS` files for short. These files contain rules that specify what style should be applied to which 
@@ -292,8 +302,17 @@ div {
 What we've done here is setup a style that applies to add `div` elements in your html files which will create a border of color
 orangered and a padding of 10 pixels.
 
-Inclusion: Finally, to include our css into our webpack build, we need to import it in our .js file to let webpack know thats where
-our css dependency tree starts from. To do that add the following line at the top of your `index.js` file
+Inclusion: Finally, we need to include our css styles into the webpack build which we can do in one of two ways.
+ 1. We could use the entry section of the webpack.config.js file to include the root css like so
+ 
+```json
+module.exports = {
+    entry: [
+        './src/styles/app.css'
+    ]
+```
+
+ 2. Or we could just import the root css in our .js file to let webpack know thats where our css dependency tree starts from. To do that add the following line at the top of your `start.js` file
 
 ```javascript
 import './styles/app.css';
@@ -316,7 +335,7 @@ The scripts section allows you to package complex commands that you need into a 
 Notice how when you run the command your get a bunch of compilation output in the terminal indicating that webpack has gone through all of its setup
 config and invoked the various loaders to the final end product created and made available automatically through the dev web server.
 
-Go ahead and make the following change to your `index.js` file to change the value of the greeting variable
+Go ahead and make the following change to your `start.js` file to change the value of the greeting variable
 
 ```javascript
 // In the changeGreeting function
