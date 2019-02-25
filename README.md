@@ -259,6 +259,7 @@ module.exports = {
     entry: [
         './src/js/start.js'
     ]
+}
 ```
 
 ### CSS
