@@ -155,7 +155,7 @@ Several points I want to highlight here
  * This config lets webpack know that all files in the project, except those in the node_modules directory, that match the test pattern (files that end with .js) should go through the 
  babel loader for transformation.
  
-Babel will also separately need to be configured with a bunch of presets which we do by adding the `babel.rc` file to your project root directory
+Babel will also separately need to be configured with a bunch of presets which we do by adding the `.babelrc` file to your project root directory
 
 ```javascript
 {
@@ -259,6 +259,7 @@ module.exports = {
     entry: [
         './src/js/start.js'
     ]
+}
 ```
 
 ### CSS
@@ -281,7 +282,7 @@ The `style-loader` then tells webpack to put this style string into your main .h
 *Yes, webpack will automatically edit your source index.html to load in its compiled output*
 
 Config: Once the loaders are pulled in, we need to add the rule for it in our webpack.config.js file to let webpack know the file pattern 
-to apply these loaders to. To do this add the following Object literal to the ules array in the webpack.config.js file.
+to apply these loaders to. To do this add the following Object literal to the rules array in the webpack.config.js file.
 
 ```javascript
 {
