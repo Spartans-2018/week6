@@ -25,6 +25,7 @@
 * Every browser renders HTML differently.
 * A `heading` tag may have different sizing and spacing on Chrome vs. Firefox vs. IE, and the like
 
+##### MDN 
 Let's go through the guide to get introduced to HTML
 [Getting Started with HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started)
 
@@ -158,4 +159,6 @@ as a reference guide to look up items. Please get familiar with it and have it b
 
 ***There are many more HTML tags out there, feel free to play around with these or explore others on your own***
 
-## To see how an HTML file will look have it open in your text editor (sublime / atom / VS code). Right click and go to "Open in browser"
+
+## Resources
+[MDN](https://developer.mozilla.org/en-US/docs/Web/HTML)
