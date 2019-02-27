@@ -1,0 +1,10 @@
+{
+	"folders": [
+		{
+			"path": "getting-started"
+		}
+	],
+	"settings": {
+		"git.ignoreLimitWarning": true
+	}
+}
