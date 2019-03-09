@@ -1,10 +1,25 @@
 
-function changeGreeting() {
-    let greeting = "Hello again";
+document.querySelectorAll("img")
+    .forEach(element => {
+        element.addEventListener("click", (event) => {
+            // Remove the border from all images
+            document.querySelectorAll("img")
+                .forEach(e => e.style.border = "");
 
-    let elementsByTagName = document.getElementsByTagName("H1");
+            // Add the border to this image
+            let e = event.currentTarget;
+            e.style.border = "1px solid orange";
+        });
+    });
 
-    elementsByTagName[0].textContent = greeting;
-}
+document.querySelectorAll('.option')
+    .forEach(element => {
+        element.addEventListener("click", (event) => {
+            let e = event.currentTarget;
+            e.style.border = "3px solid black";
 
-document.getElementById("greetButton").addEventListener("click", changeGreeting);
+            let status = document.querySelector(".status");
+            status.firstChild.innerText = `You chose ${e.id === "r" ?
+        "Rock": e.id === "p" ? "Paper" : "Scissors"}`;
+        }, true);
+    });

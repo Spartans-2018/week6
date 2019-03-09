@@ -8,9 +8,10 @@ const HtmlWebpackPluginConfig = new HtmlWebPackPlugin({
 });
 
 module.exports = {
-    /*entry: [
-        './src/index.js'
-    ],*/
+    entry: [
+        './src/js/start.js',
+        './src/styles/app.css'
+    ],
     module: {
         rules: [
             {
@@ -31,6 +32,15 @@ module.exports = {
                         loader: "html-loader"
                     }
                 ]
+            },
+            {
+                test: /\.(png|jpg|gif)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {},
+                    },
+                ],
             }
         ]
     },

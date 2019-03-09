@@ -1,4 +1,80 @@
-div {
-    border: 1px solid orangered;
-    padding:10px;
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.scoreboard {
+    border: 3px solid black;
+    width: 300px;
+    margin: 40px auto;
+    text-align: center;
+    padding: 40px 20px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.badge {
+    background: red;
+    font-size: 20px;
+    padding: 5px 5px;
+    border: 1px solid pink;
+    border-radius: 5px;
+}
+
+#user-badge {
+    position: absolute;
+    top: 50px;
+    left: -25px;
+}
+
+#comp-badge {
+    position: absolute;
+    top: 50px;
+    right: -40px;
+}
+
+.score {
+    font-size: 46px;
+}
+
+.result {
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.controls {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.option {
+    display: inline-block;
+    border: 2px solid green;
+    margin: 0px 20px;
+    border-radius: 50%;
+    padding: 15px;
+}
+
+.option:hover {
+    background-color: pink;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+img {
+    width: 75px;
+    height: 75px;
+}
+
+.status {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
 }

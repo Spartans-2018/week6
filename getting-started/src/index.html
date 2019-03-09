@@ -5,12 +5,27 @@
     <title>My First Web Page</title>
 </head>
 <body>
-<div id="container">
-    <H1>Hello World !</H1>
+    <header>
+        <h1>Rock Paper Scissors</h1>
+    </header>
+    <main>
+        <div class="scoreboard">
+            <div id="user-badge" class="badge">User</div>
+            <div class="score"><span>0</span>:<span>0</span></div>
+            <div id="comp-badge" class="badge">Computer</div>
+        </div>
 
-<!--
-    <input id="greetButton" type="button" value="Change Greeting"/>
--->
-</div>
+        <div class="result">
+            You Win!
+        </div>
+
+        <div class="controls">
+            <div id="r" class="option"><img src="images/rock.png"></div>
+            <div id="p" class="option"><img src="images/paper.png"></div>
+            <div id="s" class="option"><img src="images/scissors.png"></div>
+        </div>
+
+        <div class="status"><p>Make your move</p></div>
+    </main>
 </body>
 </html>
