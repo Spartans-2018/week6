@@ -1,3 +1,13 @@
+import Service from './service';
+
+let service = new Service();
+
+let userBadgeClickHandler = () => {
+    service.getUserDetails('user')
+        .then(function(data) {
+            console.log(data);
+        })
+};
 
 document.querySelectorAll("img")
     .forEach(element => {
@@ -23,3 +33,6 @@ document.querySelectorAll('.option')
         "Rock": e.id === "p" ? "Paper" : "Scissors"}`;
         }, true);
     });
+    
+document.getElementById('user-badge')
+    .addEventListener("click", userBadgeClickHandler);

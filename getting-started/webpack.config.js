@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const babelPolyfill = require("babel-polyfill");
 
 const HtmlWebpackPluginConfig = new HtmlWebPackPlugin({
     template: './src/index.html',
@@ -9,6 +10,7 @@ const HtmlWebpackPluginConfig = new HtmlWebPackPlugin({
 
 module.exports = {
     entry: [
+        'babel-polyfill',
         './src/js/start.js',
         './src/styles/app.css'
     ],
