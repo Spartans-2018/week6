@@ -14,6 +14,7 @@ module.exports = {
         './src/js/start.js',
         './src/styles/app.css'
     ],
+    devtool: 'eval-source-map',
     module: {
         rules: [
             {
