@@ -27,7 +27,11 @@ let divClickHandler = (event) => {
 };
 
 let userBadgeClickHandler = () => {
-    let p = service.getUserDetails('user');
+    let dataP = service.getUserDetails('user');
+
+    dataP.then((data) => {
+        console.log(`Data received ${data.name}`);
+    });
 };
 
 

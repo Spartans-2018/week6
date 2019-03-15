@@ -4,36 +4,41 @@ class Service {
         this.url = "/resources/user-details.json";
     }
 
-    async getUserDetails() {
-        // return fetch(this.url)
-        //     .then(function(response) {
-        //         return response.json().then(function(data) {
-        //             return data;
-        //         });
-        //     }, function(error) {
-        //         console.error(`Error !! ${e}`);
-        //     });
+    /**
+     * Making a remote call using promises
+     */
+    getUserDetails() {
+        return fetch(this.url)
+            .then((response) => {
+                return response.json();
+            })
+            .then((jsonData) => {
+                return jsonData;
+            })
+            .catch((e) => {
+                console.error("Exception !!!" + e);
+            })
+    }
 
-        // return fetch(this.url)
-        //     .then(function(response) {
-        //         return response.json();
-        //     })
-        //     .then(function(data) {
-        //         return data;
-        //     })
-        //     .catch(function(error) {
-        //         console.error(`Error ${error}`);
-        //     });
-
+    /**
+     * The same operation using async await
+     */
+    async getUserDetailsAsync() {
         try {
             const response = await fetch(this.url);
-            const data = await response.json();
-            return data;
+            const jsonData = await response.json();
+            return jsonData;
         }
-        catch (error) {
-            console.error(`Error ${error}`);
+        catch (e) {
+            console.error("Exception !!!" + e);
         }
     }
+
+    scratch() {
+        let array = [];
+    }
 }
+
+
 
 export default Service;
