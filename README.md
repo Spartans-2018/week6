@@ -215,7 +215,7 @@ deployable units (like injecting the script tag for transpiled .js files).
 
 ## Development
 
-###HTML
+### HTML
 Now we're ready to write some source code. To do so, create a file called index.html in the `src` directory of your project with the following content
 
 ```html
