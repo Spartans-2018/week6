@@ -1,27 +1,53 @@
 
-
+initTime();
 setInterval(secondsTickHandler, 1000);
 
-/**
- * Scales a number to a rotation degree based on the scale provided.
- * 
- * @param {*} seconds 
- * @param {*} scale 
- */
-function convertToRotateDegrees(seconds, scale) {
-    return (seconds / scale * 360);
+function getIncrementalDegreeMovement(scale) {
+    return 360 / scale;
 }
 
-function secondsTickHandler() {
+let secondsDegrees = 0;
+let minutesDegrees = 0;
+let hoursDegrees = 0;
+
+function initTime() {
     const date = new Date();
 
-    rotateElement(date.getSeconds(), 60, '.second-hand');
-    rotateElement(date.getMinutes(), 60, ".minute-hand");
-    rotateElement(date.getHours(), 12, ".hour-hand");
+    secondsDegrees = date.getSeconds() * getIncrementalDegreeMovement(60);
+    minutesDegrees = date.getMinutes() * getIncrementalDegreeMovement(60);
+    hoursDegrees = date.getHours() * getIncrementalDegreeMovement(12);
+
+    document.querySelector('.second-hand')
+        .style.transform = `rotate(${secondsDegrees}deg)`;
+    document.querySelector('.minute-hand')
+        .style.transform = `rotate(${minutesDegrees}deg)`;
+    document.querySelector('.hour-hand')
+        .style.transform = `rotate(${hoursDegrees}deg)`;
 }
 
-function rotateElement(timeSegment, rotationScale, elementCSSSelector) {
-    const degrees = convertToRotateDegrees(timeSegment, rotationScale);
+
+function secondsTickHandler() {
+    if (secondsDegrees == 0) {
+        initTime();
+    }
+
+    const date = new Date();
+
+    secondsDegrees += getIncrementalDegreeMovement(60);
+    moveElement('.second-hand', secondsDegrees);
+
+    if(date.getSeconds() == 0) {
+        minutesDegrees += getIncrementalDegreeMovement(60);
+        moveElement('.minute-hand', minutesDegrees);
+    }
+
+    if(date.getMinutes() == 0) {
+        hoursDegrees += getIncrementalDegreeMovement(12);
+        moveElement('.hour-hand', hoursDegrees);
+    }
+}
+
+function moveElement(elementCSSSelector, rotationDegrees) {
     document.querySelector(elementCSSSelector)
-        .style.transform = `rotate(${degrees + 90}deg)`;
+        .style.transform = `rotate(${rotationDegrees}deg)`;
 }
