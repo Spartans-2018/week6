@@ -1,19 +1,15 @@
 const path = require('path');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-const babelPolyfill = require("babel-polyfill");
+require("babel-polyfill");
 
-const HtmlWebpackPluginConfig = new HtmlWebPackPlugin({
-    template: './src/index.html',
-    filename: 'index.html',
-    inject: 'body'
-});
 
 module.exports = {
-    entry: [
-        'babel-polyfill',
-        './src/js/start.js',
-        './src/styles/app.css'
-    ],
+    entry: {
+        'index': ['babel-polyfill','./src/js/index.js'],
+        'drum': ['babel-polyfill','./src/js/drum.js'],
+        'clock': ['babel-polyfill','./src/js/clock.js'],
+        'css': './src/styles/app.css'
+    },
     devtool: 'eval-source-map',
     module: {
         rules: [
@@ -48,6 +44,23 @@ module.exports = {
         ]
     },
     plugins: [
-        HtmlWebpackPluginConfig
+        new HtmlWebPackPlugin({
+            template: './src/drum.html',
+            inject: true,
+            chunks: ['drum', 'css'],
+            filename: 'drum.html'
+        }),
+        new HtmlWebPackPlugin({
+            template: './src/clock.html',
+            inject: true,
+            chunks: ['clock', 'css'],
+            filename: 'clock.html'
+        }),
+        new HtmlWebPackPlugin({
+            template: './src/index.html',
+            inject: true,
+            chunks: ['index', 'css'],
+            filename: 'index.html'
+        }),
     ]
 };
