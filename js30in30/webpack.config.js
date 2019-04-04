@@ -8,6 +8,7 @@ module.exports = {
         'index': ['babel-polyfill','./src/js/index.js'],
         'drum': ['babel-polyfill','./src/js/drum.js'],
         'clock': ['babel-polyfill','./src/js/clock.js'],
+        'cssvars': ['babel-polyfill','./src/js/cssvars.js'],
         'css': './src/styles/app.css'
     },
     devtool: 'eval-source-map',
@@ -57,10 +58,16 @@ module.exports = {
             filename: 'clock.html'
         }),
         new HtmlWebPackPlugin({
+            template: './src/cssvars.html',
+            inject: true,
+            chunks: ['cssvars', 'css'],
+            filename: 'cssvars.html'
+        }),
+        new HtmlWebPackPlugin({
             template: './src/index.html',
             inject: true,
             chunks: ['index', 'css'],
             filename: 'index.html'
-        }),
+        })
     ]
 };
