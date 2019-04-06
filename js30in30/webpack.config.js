@@ -2,12 +2,23 @@ const path = require('path');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 require("babel-polyfill");
 
+const projects = ['index', 'drum', 'clock', 'array', 'cssvars'];
+
+const plugins = projects.map(project => {
+    return new HtmlWebPackPlugin({
+        template: `./src/${project}.html`,
+        inject: true,
+        chunks: [`${project}`, 'css'],
+        filename: `${project}.html`
+    });
+});
 
 module.exports = {
     entry: {
         'index': ['babel-polyfill','./src/js/index.js'],
         'drum': ['babel-polyfill','./src/js/drum.js'],
         'clock': ['babel-polyfill','./src/js/clock.js'],
+        'array': ['babel-polyfill','./src/js/array.js'],
         'cssvars': ['babel-polyfill','./src/js/cssvars.js'],
         'css': './src/styles/app.css'
     },
@@ -44,30 +55,5 @@ module.exports = {
             }
         ]
     },
-    plugins: [
-        new HtmlWebPackPlugin({
-            template: './src/drum.html',
-            inject: true,
-            chunks: ['drum', 'css'],
-            filename: 'drum.html'
-        }),
-        new HtmlWebPackPlugin({
-            template: './src/clock.html',
-            inject: true,
-            chunks: ['clock', 'css'],
-            filename: 'clock.html'
-        }),
-        new HtmlWebPackPlugin({
-            template: './src/cssvars.html',
-            inject: true,
-            chunks: ['cssvars', 'css'],
-            filename: 'cssvars.html'
-        }),
-        new HtmlWebPackPlugin({
-            template: './src/index.html',
-            inject: true,
-            chunks: ['index', 'css'],
-            filename: 'index.html'
-        })
-    ]
+    plugins: plugins
 };
