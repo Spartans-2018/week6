@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 require("babel-polyfill");
 
-const projects = ['index', 'drum', 'clock', 'array', 'cssvars'];
+const projects = ['index', 'drum', 'clock', 'array', 'cssvars', 'flexpanels'];
 
 const plugins = projects.map(project => {
     return new HtmlWebPackPlugin({
@@ -20,6 +20,7 @@ module.exports = {
         'clock': ['babel-polyfill','./src/js/clock.js'],
         'array': ['babel-polyfill','./src/js/array.js'],
         'cssvars': ['babel-polyfill','./src/js/cssvars.js'],
+        'flexpanels': ['babel-polyfill','./src/js/flexpanels.js'],
         'css': './src/styles/app.css'
     },
     devtool: 'eval-source-map',
