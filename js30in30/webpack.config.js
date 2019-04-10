@@ -4,6 +4,14 @@ require("babel-polyfill");
 
 const projects = ['index', 'drum', 'clock', 'array', 'cssvars', 'flexpanels'];
 
+let entry = {};
+
+projects.forEach(project => {
+    entry[project] = ['babel-polyfill', `./src/js/${project}.js`];
+});
+entry['css'] = './src/styles/app.css';
+
+
 const plugins = projects.map(project => {
     return new HtmlWebPackPlugin({
         template: `./src/${project}.html`,
@@ -14,15 +22,7 @@ const plugins = projects.map(project => {
 });
 
 module.exports = {
-    entry: {
-        'index': ['babel-polyfill','./src/js/index.js'],
-        'drum': ['babel-polyfill','./src/js/drum.js'],
-        'clock': ['babel-polyfill','./src/js/clock.js'],
-        'array': ['babel-polyfill','./src/js/array.js'],
-        'cssvars': ['babel-polyfill','./src/js/cssvars.js'],
-        'flexpanels': ['babel-polyfill','./src/js/flexpanels.js'],
-        'css': './src/styles/app.css'
-    },
+    entry: entry,
     devtool: 'eval-source-map',
     module: {
         rules: [
