@@ -23,6 +23,7 @@ function findMatches(searchStr) {
 function handleChange(e) {
     const regExp = new RegExp(this.value, 'gi');
 
+
     const matches = findMatches(this.value)
         .map(city => {
             const formattedCity = city.city.replace(regExp, `<span class="highlight">${this.value}</span>`)
