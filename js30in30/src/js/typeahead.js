@@ -24,7 +24,7 @@ function handleChange(e) {
     const regExp = new RegExp(this.value, 'gi');
 
 
-    const matches = findMatches(this.value)
+    const matches = this.value === '' || this.value === undefined ? '' : findMatches(this.value)
         .map(city => {
             const formattedCity = city.city.replace(regExp, `<span class="highlight">${this.value}</span>`)
             const formattedState = city.state.replace(regExp, `<span class="highlight">${this.value}</span>`);
@@ -35,6 +35,7 @@ function handleChange(e) {
                 </li>`;
         })
         .join('');
+
 
     document.querySelector('.suggestions')
         .innerHTML = matches;
