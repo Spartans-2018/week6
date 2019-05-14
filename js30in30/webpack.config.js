@@ -2,7 +2,10 @@ const path = require('path');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 require("babel-polyfill");
 
-const projects = ['index', 'drum', 'clock', 'array', 'cssvars', 'flexpanels', 'typeahead', 'canvas', 'video'];
+const projects = [
+    'index', 'drum', 'clock', 'array', 'cssvars', 'flexpanels', 'typeahead', 'canvas', 'video',
+    'checkbox'
+];
 
 let entry = {};
 
